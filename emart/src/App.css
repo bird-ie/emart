@@ -127,14 +127,14 @@ td {
   text-align: center;
 }
 
-.page-title {
+/* .page-title {
   color: var(--primary-color) !important;
   text-align: center;
   background-color: white;
   padding: 10px;
   border: 1px solid #eeeedd;
   margin-top: -20px!important;
-}
+} */
 
 h2 {
   color: var(--primary-color) !important;
@@ -224,4 +224,22 @@ h2 {
 
 .pdf-csv-button{
   font-size: 1.5rem!important ;
+}
+
+.char-left{
+  text-align: left;
+}
+
+.fixed-center{
+  text-align: center;
+}
+
+.numeric-right{
+  text-align: right;
+}
+
+.fit-content-width{
+  display: inline-block!important; 
+  width: auto!important; 
+  padding: 10px 15px!important;
 }

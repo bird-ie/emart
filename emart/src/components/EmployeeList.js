@@ -7,6 +7,7 @@ import "jspdf-autotable";
 import "./TableStyle.css";
 import { FaFilePdf, FaFileCsv } from "react-icons/fa";
 import PathHead from "./General/BreadCrumbs";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function EmployeeList() {
   const [employeeData, setEmployeeData] = useState([]);
@@ -139,8 +140,8 @@ export default function EmployeeList() {
 
     return filteredData.map((data, index) => (
       <tr key={index}>
-        <td>{index + 1}</td>
-        <td>{data.tempnam}</td>
+        <td style={{ maxWidth: "20px" }}>{data.tempcod}</td>
+        <td className="char-left">{data.tempnam}</td>
         <td>{data.tphnnum}</td>
         <td>{data.tempsts}</td>
       </tr>
@@ -157,16 +158,27 @@ export default function EmployeeList() {
     }
 
     return filteredData;
-  };  
+  };
+
+  const handleReturnClick = () => {
+    window.history.back();
+  };
 
   return (
     <>
-    <PathHead pageName="Reports > Lists > Employee List" />
+      <PathHead pageName="Reports > Lists > Employee List" />
       <Container className="p-3">
         {employeeData.length > 0 && (
           <div className="p-4">
+            <Row className="mb-2" style={{ marginLeft: 5 }}>
+              <Button className="fit-content-width" onClick={handleReturnClick}>
+                {" "}
+                <FaArrowLeft />
+              </Button>
+            </Row>
             <Row className="gap-3">
-              <Col>
+              <Col className="d-flex flex-row gap-2 align-items-center">
+                <span>Status</span>
                 <Dropdown className="ml-2">
                   <Dropdown.Toggle
                     variant="secondary"
@@ -215,10 +227,10 @@ export default function EmployeeList() {
               <MDBTable responsive scrollY striped maxHeight="360px">
                 <MDBTableHead>
                   <tr>
-                    <th style={{ width: '20px' }}>#</th>
-                    <th>Name</th>
+                    <th style={{ width: "20px" }}>Code</th>
+                    <th style={{ width: "350px" }}>Name</th>
                     <th>Mobile No.</th>
-                    <th style={{ width: '20px' }}>Status</th>
+                    <th style={{ width: "20px" }}>Status</th>
                   </tr>
                 </MDBTableHead>
                 <MDBTableBody>
